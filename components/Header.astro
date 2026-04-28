@@ -1,0 +1,28 @@
+---
+import { business } from './data';
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/services/', label: 'Services' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' }
+];
+---
+<header class="header">
+  <div class="container header-row">
+    <a href="/" class="logo-lockup" aria-label="Shocka Pools home">
+      <img src="/images/logo.png" alt="Shocka Pools logo" />
+      <div>
+        <div style="font-weight:900; font-size:1.15rem; letter-spacing:-.02em; color:#0f172a;">{business.name}</div>
+        <div style="font-size:.78rem; text-transform:uppercase; letter-spacing:.18em; color:#64748b;">Big Island Service</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      {links.map((link) => (
+        <a href={link.href} class={pathname === link.href ? 'active' : undefined}>{link.label}</a>
+      ))}
+      <a href={business.phoneHref} class="btn btn-primary">Call Now</a>
+    </nav>
+  </div>
+</header>
