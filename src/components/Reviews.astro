@@ -1,0 +1,13 @@
+---
+import { reviews } from './data';
+---
+<div class="grid grid-3">
+  {reviews.map((review) => (
+    <article class="card pad testimonial">
+      <div class="eyebrow">Why homeowners call</div>
+      <h3 class="h3">{review.title}</h3>
+      <p>{review.body}</p>
+      <div style="margin-top:1rem; font-weight:800; color:#0f172a;">{review.name}</div>
+    </article>
+  ))}
+</div>
