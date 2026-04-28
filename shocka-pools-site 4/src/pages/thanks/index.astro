@@ -1,0 +1,23 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const title = 'Thank You | Shocka Pools';
+const description = 'Your quote request has been sent to Shocka Pools.';
+---
+<MainLayout title={title} description={description} path="/thanks/">
+  <section class="section">
+    <div class="container">
+      <div class="card pad" style="max-width:760px;">
+        <p class="eyebrow">Quote request sent</p>
+        <h1 class="h2">Mahalo, your message has been sent.</h1>
+        <p class="copy">
+          Shocka Pools has received your request through the website form. Someone can now follow up using the contact details you submitted.
+        </p>
+        <div style="margin-top:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="/">Back to Home</a>
+          <a class="btn btn-secondary" href="/contact/">Send Another Request</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

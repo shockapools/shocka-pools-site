@@ -1,0 +1,62 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { seoTowns, services } from '../../components/data';
+
+export function getStaticPaths() {
+  return Object.entries(seoTowns).map(([slug, town]) => ({ params: { slug }, props: { town, slug } }));
+}
+
+const { town, slug } = Astro.props;
+const title = `${town.title} | Shocka Pools`;
+const description = town.description;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Pool Service, Catchment Tank Service, Rain Gutter Service',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Shocka Pools',
+    telephone: '+1-808-333-0615',
+    email: 'shockapools@gmail.com'
+  },
+  areaServed: {
+    '@type': 'City',
+    name: town.name,
+    containedInPlace: { '@type': 'State', name: 'Hawaii' }
+  }
+};
+---
+<MainLayout title={title} description={description} path={`/service-areas/${slug}/`} keywords={[`${town.name} pool service`, `${town.name} catchment tank service`, `${town.name} rain gutter service`, `${town.name} Hawaii`]} schema={schema}>
+  <section class="section">
+    <div class="container stack">
+      <div class="breadcrumbs"><a href="/">Home</a> / <a href="/service-areas/">Service Areas</a> / {town.name}</div>
+      <div>
+        <p class="eyebrow">{town.name}, Hawaii</p>
+        <h1 class="h2">{town.title}</h1>
+        <p class="copy" style="max-width:68ch;">{town.description}</p>
+      </div>
+
+      <div class="split">
+        <div class="card pad">
+          <h2 class="h3">Local service for {town.name} homeowners</h2>
+          <p class="copy">
+            If you are looking for dependable help with a pool, catchment tank, or rain gutters in {town.name}, Shocka Pools is positioned as a local East Hawaii option with direct owner contact and a simple quote request process.
+          </p>
+          <p class="copy">
+            These location pages are written to support local SEO while still sounding natural for homeowners who simply want trustworthy service and clear communication.
+          </p>
+          <a class="btn btn-primary" href="/contact/">Request a Quote</a>
+        </div>
+
+        <div class="card pad">
+          <div class="eyebrow">Services in {town.name}</div>
+          <ul class="list-clean">
+            {services.map((service) => (
+              <li><span class="check">✓</span><span><strong>{service.title}</strong> — {service.summary}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

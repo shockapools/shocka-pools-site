@@ -1,0 +1,39 @@
+---
+const jobs = [
+  { title: 'Catchment Tank Cleaning', before: '/images/catchment/before-1.png', after: '/images/catchment/after-1.png' },
+  { title: 'Sediment and Debris Removal', before: '/images/catchment/before-2.png', after: '/images/catchment/after-2.png' },
+  { title: 'Tank Floor Cleanup', before: '/images/catchment/before-3.png', after: '/images/catchment/after-3.png' },
+  { title: 'Cleaner Catchment System', before: '/images/catchment/before-4.png', after: '/images/catchment/after-4.png' }
+];
+---
+<div class="pricing-callout card pad">
+  <div>
+    <p class="eyebrow">Catchment cleaning</p>
+    <h3 class="h3">When's the last time you checked your tank?</h3>
+    <p class="copy">
+      Catchment tank cleanings start at <strong>$299+</strong>. Final pricing depends on tank size, access, water level, debris buildup, and the condition of the system.
+    </p>
+  </div>
+  <a class="btn btn-primary" href="/contact/">Request a Quote</a>
+</div>
+
+<div class="before-after-gallery">
+  {jobs.map((job) => (
+    <article class="before-after-card card">
+      <div class="before-after-header">
+        <h3>{job.title}</h3>
+        <span>Starting at $299+</span>
+      </div>
+      <div class="before-after-pair">
+        <figure>
+          <span>Before</span>
+          <img src={job.before} alt={job.title + ' before cleaning'} loading="lazy" />
+        </figure>
+        <figure>
+          <span>After</span>
+          <img src={job.after} alt={job.title + ' after cleaning'} loading="lazy" />
+        </figure>
+      </div>
+    </article>
+  ))}
+</div>

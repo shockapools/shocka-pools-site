@@ -1,0 +1,63 @@
+---
+const towns = [
+  { name: 'Hilo', x: 74, y: 36 },
+  { name: 'Keaau', x: 76, y: 47 },
+  { name: 'HPP', x: 82, y: 52 },
+  { name: 'Pahoa', x: 83, y: 61 },
+  { name: 'Kurtistown', x: 69, y: 50 },
+  { name: 'Mountain View', x: 65, y: 57 },
+  { name: 'Volcano', x: 58, y: 70 }
+];
+---
+<section class="section coverage-section">
+  <div class="container split coverage-grid">
+    <div class="stack centered-copy">
+      <p class="eyebrow">Service area</p>
+      <h2 class="h2">East side Big Island coverage, built around real local conditions.</h2>
+      <p class="copy">
+        Shocka Pools focuses on the windward side of Hawaii Island where heavy rain, volcanic ash, forest debris, and catchment systems are part of everyday property care.
+      </p>
+      <div class="pill-row surface-pills">
+        <span class="pill">Hilo</span>
+        <span class="pill">Keaau</span>
+        <span class="pill">HPP</span>
+        <span class="pill">Pahoa</span>
+        <span class="pill">Mountain View</span>
+        <span class="pill">Kurtistown</span>
+        <span class="pill">Volcano</span>
+      </div>
+      <p class="copy small-note">Map is a stylized, geographically oriented service-area guide for the east side of Hawaii Island.</p>
+    </div>
+
+    <div class="card pad map-shell">
+      <svg viewBox="0 0 100 100" role="img" aria-label="Stylized map of Hawaii Island highlighting east side service areas">
+        <defs>
+          <linearGradient id="islandFill" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#f8fafc" />
+            <stop offset="100%" stop-color="#dbeafe" />
+          </linearGradient>
+          <linearGradient id="coverageFill" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.72" />
+            <stop offset="100%" stop-color="#0369a1" stop-opacity="0.78" />
+          </linearGradient>
+        </defs>
+        <path class="island-outline" d="M34 7 C45 5 56 9 65 17 C77 28 84 42 88 56 C92 69 89 80 78 88 C66 96 47 96 33 90 C20 84 11 72 9 58 C7 44 13 31 21 20 C25 14 28 9 34 7 Z" fill="url(#islandFill)" />
+        <path class="coverage-shape" d="M61 18 C76 27 84 44 87 58 C90 71 84 83 72 89 C65 93 56 94 48 91 C57 84 62 75 63 66 C65 52 65 39 61 18 Z" fill="url(#coverageFill)" />
+        <path class="coastline" d="M34 7 C45 5 56 9 65 17 C77 28 84 42 88 56 C92 69 89 80 78 88 C66 96 47 96 33 90 C20 84 11 72 9 58 C7 44 13 31 21 20 C25 14 28 9 34 7 Z" />
+        <circle class="volcano" cx="45" cy="42" r="7" />
+        <text class="geo-label" x="34" y="41">Mauna Kea</text>
+        <circle class="volcano" cx="42" cy="63" r="9" />
+        <text class="geo-label" x="28" y="64">Mauna Loa</text>
+        <circle class="volcano active" cx="58" cy="72" r="5" />
+        <text class="geo-label" x="49" y="82">Kīlauea</text>
+        {towns.map((town) => (
+          <g class="town-marker">
+            <circle cx={town.x} cy={town.y} r="1.8" />
+            <text x={town.x + 2.5} y={town.y + 1}>{town.name}</text>
+          </g>
+        ))}
+        <text class="map-label" x="64" y="13">East Hawaii service zone</text>
+      </svg>
+    </div>
+  </div>
+</section>

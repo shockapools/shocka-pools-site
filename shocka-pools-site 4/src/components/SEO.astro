@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  image?: string;
+  keywords?: string[];
+  schema?: Record<string, any> | Record<string, any>[];
+}
+
+const {
+  title,
+  description,
+  path = '/',
+  image = '/images/logo.png',
+  keywords = [],
+  schema
+} = Astro.props;
+
+const canonical = new URL(path, Astro.site).toString();
+const imageUrl = new URL(image, Astro.site).toString();
+const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index,follow" />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+{schemas.map((entry) => (
+  <script type="application/ld+json" set:html={JSON.stringify(entry)} />
+))}
