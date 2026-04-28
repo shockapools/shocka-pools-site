@@ -1,0 +1,101 @@
+---
+const towns = [
+  { name: 'Hilo', x: 279, y: 158 },
+  { name: 'Keaau', x: 287, y: 199 },
+  { name: 'HPP', x: 300, y: 221 },
+  { name: 'Pahoa', x: 307, y: 250 },
+  { name: 'Kurtistown', x: 270, y: 218 },
+  { name: 'Mountain View', x: 256, y: 245 },
+  { name: 'Volcano', x: 229, y: 303 }
+];
+---
+<section class="section coverage-section">
+  <div class="container split coverage-grid">
+    <div class="stack centered-copy">
+      <p class="eyebrow">Service area</p>
+      <h2 class="h2">East side Big Island coverage, built around real local conditions.</h2>
+      <p class="copy">
+        Shocka Pools focuses on East Hawaii and the windward side of the island, where heavy rain, volcanic ash, forest debris, and catchment systems are part of everyday property care.
+      </p>
+      <div class="pill-row surface-pills">
+        <span class="pill">Hilo</span>
+        <span class="pill">Keaau</span>
+        <span class="pill">HPP</span>
+        <span class="pill">Pahoa</span>
+        <span class="pill">Mountain View</span>
+        <span class="pill">Kurtistown</span>
+        <span class="pill">Volcano</span>
+      </div>
+      <p class="copy small-note">Map is a stylized service-area guide based on the Big Island outline, with coverage focused on the east and southeast side.</p>
+    </div>
+
+    <div class="card pad map-shell">
+      <svg viewBox="0 0 360 500" role="img" aria-label="Map of Hawaii Island highlighting East Hawaii service areas">
+        <defs>
+          <linearGradient id="islandFill" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff" />
+            <stop offset="100%" stop-color="#dbeafe" />
+          </linearGradient>
+          <linearGradient id="coverageFill" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.70" />
+            <stop offset="100%" stop-color="#0369a1" stop-opacity="0.82" />
+          </linearGradient>
+        </defs>
+
+        <!-- More Big-Island-like outline: Kohala north, Hamakua/Hilo east, Puna southeast, Ka'u south, Kona west -->
+        <path class="island-outline-real" d="M158 22
+          C188 18 220 42 241 72
+          C264 104 283 126 296 158
+          C312 198 329 233 323 278
+          C318 319 294 355 257 385
+          C229 407 212 444 171 462
+          C133 479 89 452 72 412
+          C55 372 58 334 43 300
+          C28 267 31 225 45 190
+          C58 158 55 121 80 91
+          C103 64 122 30 158 22 Z" fill="url(#islandFill)" />
+
+        <!-- East Hawaii service coverage shape follows the windward coast instead of a random blob -->
+        <path class="coverage-shape-real" d="M232 74
+          C260 109 288 143 301 184
+          C315 226 322 258 314 292
+          C305 331 279 362 244 390
+          C222 408 205 434 176 456
+          C190 410 211 372 222 331
+          C234 286 238 239 238 195
+          C239 151 236 112 232 74 Z" fill="url(#coverageFill)" />
+
+        <path class="coastline-real" d="M158 22
+          C188 18 220 42 241 72
+          C264 104 283 126 296 158
+          C312 198 329 233 323 278
+          C318 319 294 355 257 385
+          C229 407 212 444 171 462
+          C133 479 89 452 72 412
+          C55 372 58 334 43 300
+          C28 267 31 225 45 190
+          C58 158 55 121 80 91
+          C103 64 122 30 158 22 Z" />
+
+        <path class="east-coast-line" d="M239 92 C268 126 291 161 306 207 C322 258 315 314 279 360 C252 394 216 424 176 456" />
+
+        <circle class="volcano" cx="175" cy="166" r="34" />
+        <text class="geo-label" x="132" y="168">Mauna Kea</text>
+        <circle class="volcano" cx="160" cy="274" r="43" />
+        <text class="geo-label" x="111" y="280">Mauna Loa</text>
+        <circle class="volcano active" cx="225" cy="316" r="23" />
+        <text class="geo-label" x="198" y="359">Kīlauea</text>
+
+        {towns.map((town) => (
+          <g class="town-marker">
+            <circle cx={town.x} cy={town.y} r="7" />
+            <text x={town.x + 10} y={town.y + 5}>{town.name}</text>
+          </g>
+        ))}
+
+        <text class="map-label" x="206" y="55">East Hawaii</text>
+        <text class="map-label-small" x="212" y="75">service zone</text>
+      </svg>
+    </div>
+  </div>
+</section>
