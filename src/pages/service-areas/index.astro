@@ -1,0 +1,30 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { business, seoTowns } from '../../components/data';
+
+const towns = Object.entries(seoTowns);
+const title = 'Service Areas | Shocka Pools';
+const description = 'Shocka Pools serves Hilo, Pahoa, Keaau, Mountain View, Kurtistown, Volcano, and nearby East Hawaii communities.';
+---
+<MainLayout title={title} description={description} path="/service-areas/" keywords={[...business.serviceAreas, 'East Hawaii service areas']}>
+  <section class="section">
+    <div class="container stack">
+      <div class="breadcrumbs"><a href="/">Home</a> / Service Areas</div>
+      <div>
+        <p class="eyebrow">Service areas</p>
+        <h1 class="h2">SEO landing pages for East Hawaii service towns.</h1>
+        <p class="copy" style="max-width:68ch;">
+          These pages help shockapools.com target local search intent for East Hawaii communities without stuffing keywords into a single page.
+        </p>
+      </div>
+      <div class="town-links">
+        {towns.map(([slug, town]) => (
+          <a href={`/service-areas/${slug}/`}>
+            <div>{town.name}</div>
+            <div class="muted" style="font-size:.95rem; margin-top:.35rem;">View local service page</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
