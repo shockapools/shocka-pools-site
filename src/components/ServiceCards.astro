@@ -1,13 +1,13 @@
 ---
 import { services } from './data';
 ---
-<div class="grid grid-3">
+<div class="services-grid">
   {services.map((service) => (
     <article class="card pad service-card">
-      <p class="eyebrow" style="margin-bottom:.4rem;">{service.title}</p>
+      <p class="eyebrow">{service.title}</p>
       <h3 class="h3">{service.title}</h3>
       <p>{service.summary}</p>
-      <a class="btn btn-secondary" href="/services/" style="margin-top:1rem;">Learn More</a>
+      <a class="btn btn-secondary" href="/services/">Learn More</a>
     </article>
   ))}
 </div>
