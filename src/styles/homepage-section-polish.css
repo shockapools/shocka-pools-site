@@ -1,0 +1,47 @@
+/* Desktop-only homepage polish. Does not affect mobile or hero section. */
+@media (min-width: 769px) {
+  .what-we-do-section .container,
+  .why-east-section .container,
+  .why-homeowners-section .container {
+    text-align: center;
+  }
+
+  .what-we-do-section .copy,
+  .why-east-section .copy,
+  .why-homeowners-section .copy {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .what-we-do-section .grid,
+  .what-we-do-section .service-grid,
+  .what-we-do-section .services-grid {
+    justify-items: center;
+  }
+
+  .what-we-do-section .card,
+  .what-we-do-section article {
+    text-align: center;
+  }
+
+  .why-east-section .copy {
+    font-size: 1.22rem;
+    line-height: 1.75;
+    max-width: 760px;
+  }
+
+  .why-east-section .list-clean {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .why-east-section .list-clean li {
+    font-size: 1.12rem;
+  }
+
+  .why-homeowners-section .copy {
+    max-width: 760px;
+  }
+}
