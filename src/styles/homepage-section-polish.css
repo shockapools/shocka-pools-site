@@ -45,3 +45,45 @@
     max-width: 760px;
   }
 }
+
+/* Force desktop homepage sections to sit centered on the page */
+@media (min-width: 769px) {
+  .what-we-do-section > .container,
+  .why-east-section > .container,
+  .why-homeowners-section > .container {
+    max-width: 980px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .what-we-do-section > .container > div,
+  .why-east-section > .container > div,
+  .why-homeowners-section > .container > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .why-east-section .list-clean {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(240px, 1fr)) !important;
+    gap: 1.75rem 4rem !important;
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+
+  .why-east-section .list-clean li {
+    justify-content: flex-start !important;
+  }
+
+  .why-homeowners-section .grid,
+  .what-we-do-section .grid {
+    justify-content: center !important;
+    justify-items: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
