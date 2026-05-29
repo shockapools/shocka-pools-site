@@ -148,32 +148,36 @@ const schema = {
   </section>
 </MainLayout>cd ~/Downloads/shocka-pools-site
 
-
 <style is:global>
-  /* shocka-homepage-desktop-fix */
+  /* FINAL: desktop-only centering for homepage sections. Hero/logo and mobile untouched. */
   @media (min-width: 769px) {
-    .what-we-do-section,
-    .why-east-section,
-    .why-homeowners-section {
-      display: flex !important;
-      justify-content: center !important;
+    body .what-we-do-section,
+    body .why-east-section,
+    body .why-homeowners-section {
+      width: 100% !important;
+      display: block !important;
       text-align: center !important;
     }
 
-    .what-we-do-section > .container,
-    .why-east-section > .container,
-    .why-homeowners-section > .container {
-      width: min(100% - 2rem, 980px) !important;
+    body .what-we-do-section > .container,
+    body .why-east-section > .container,
+    body .why-homeowners-section > .container {
       max-width: 980px !important;
+      width: 980px !important;
       margin-left: auto !important;
       margin-right: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
       text-align: center !important;
+      display: flex !important;
+      flex-direction: column !important;
       align-items: center !important;
+      justify-content: center !important;
     }
 
-    .what-we-do-section .container > div,
-    .why-east-section .container > div,
-    .why-homeowners-section .container > div {
+    body .what-we-do-section > .container > div:first-child,
+    body .why-east-section > .container > div:first-child,
+    body .why-homeowners-section > .container > div:first-child {
       width: 100% !important;
       max-width: 900px !important;
       margin-left: auto !important;
@@ -181,37 +185,38 @@ const schema = {
       text-align: center !important;
     }
 
-    .what-we-do-section .h2,
-    .what-we-do-section .copy,
-    .why-east-section .h2,
-    .why-east-section .copy,
-    .why-homeowners-section .h2,
-    .why-homeowners-section .copy,
-    .what-we-do-section .eyebrow,
-    .why-east-section .eyebrow,
-    .why-homeowners-section .eyebrow {
+    body .what-we-do-section .eyebrow,
+    body .what-we-do-section .h2,
+    body .what-we-do-section .copy,
+    body .why-east-section .eyebrow,
+    body .why-east-section .h2,
+    body .why-east-section .copy,
+    body .why-homeowners-section .eyebrow,
+    body .why-homeowners-section .h2,
+    body .why-homeowners-section .copy {
       text-align: center !important;
       margin-left: auto !important;
       margin-right: auto !important;
     }
 
-    .why-east-section .list-clean {
+    body .what-we-do-section .grid,
+    body .why-homeowners-section .grid {
       width: 100% !important;
-      max-width: 780px !important;
+      justify-content: center !important;
+      justify-items: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    body .why-east-section .list-clean {
+      width: 100% !important;
+      max-width: 760px !important;
       margin: 2rem auto 0 !important;
       display: grid !important;
       grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
       gap: 1.5rem 4rem !important;
       text-align: left !important;
-      justify-content: center !important;
-    }
-
-    .what-we-do-section .grid,
-    .why-homeowners-section .grid {
-      margin-left: auto !important;
-      margin-right: auto !important;
-      justify-content: center !important;
-      justify-items: center !important;
     }
   }
 </style>
+
