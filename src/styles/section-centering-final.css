@@ -1,35 +1,45 @@
-/* Final desktop-only centering fix. Does not touch hero/logo section or mobile. */
+/* Desktop-only homepage section centering.
+   Mobile and hero/logo section are untouched. */
 @media (min-width: 769px) {
   .what-we-do-section,
   .why-east-section,
   .why-homeowners-section {
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
-    display: flex !important;
-    justify-content: center !important;
+    display: block !important;
+    width: 100% !important;
   }
 
-  .what-we-do-section > .container,
-  .why-east-section > .container,
-  .why-homeowners-section > .container {
-    width: min(100% - 3rem, 1100px) !important;
+  .what-we-do-section .container,
+  .why-east-section .container,
+  .why-homeowners-section .container {
     max-width: 1100px !important;
+    width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     text-align: center !important;
     align-items: center !important;
   }
 
+  .what-we-do-section .container > div:first-child,
+  .why-east-section .container > div:first-child,
+  .why-homeowners-section .container > div:first-child {
+    max-width: 900px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .what-we-do-section .eyebrow,
   .what-we-do-section .h2,
   .what-we-do-section .copy,
-  .what-we-do-section .eyebrow,
+  .why-east-section .eyebrow,
   .why-east-section .h2,
   .why-east-section .copy,
-  .why-east-section .eyebrow,
+  .why-homeowners-section .eyebrow,
   .why-homeowners-section .h2,
-  .why-homeowners-section .copy,
-  .why-homeowners-section .eyebrow {
+  .why-homeowners-section .copy {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -37,10 +47,10 @@
 
   .what-we-do-section .grid,
   .why-homeowners-section .grid {
-    justify-content: center !important;
-    justify-items: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    justify-content: center !important;
+    justify-items: center !important;
   }
 
   .why-east-section .list-clean {
